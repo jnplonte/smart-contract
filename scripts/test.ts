@@ -18,6 +18,11 @@ async function main() {
 		await testDescriptor.deployed();
 		console.log('test descriptor deployed to:', testDescriptor.address);
 
+		const Web23Descriptor = await ethers.getContractFactory('Web23Descriptor');
+		const web23Descriptor = await Web23Descriptor.deploy();
+		await web23Descriptor.deployed();
+		console.log('web23 descriptor deployed to:', web23Descriptor.address);
+
 		const Test = await ethers.getContractFactory('Test');
 		const test = await Test.deploy(testDescriptor.address);
 		await test.deployed();
